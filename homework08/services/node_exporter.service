@@ -1,0 +1,13 @@
+[Unit]
+Description=Node Exporter
+# Для запуска желательно наличие сети, после которой можно запускать Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus-exporter
+Group=prometheus-exporter
+ExecStart=/usr/local/bin/node_exporter
+
+[Install]
+WantedBy=default.target
